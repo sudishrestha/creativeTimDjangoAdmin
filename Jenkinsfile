@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        echo "Here define Environment Variable"
+        // Define Environment Variables
         PYTHON_VERSION = '3.8'
         IMAGE_NAME = 'MaterialDashboard'
         REGISTRY_URL = 'http://192.168.33.10:5000'
