@@ -7,13 +7,14 @@ pipeline {
         IMAGE_NAME = 'MaterialDashboard'
         REGISTRY_URL = 'http://192.168.33.10:5000'
         REGISTRY_CREDENTIALS_ID = 'lionelrupesh'
+        REPO_URL = 'https://github.com/lionelrupesh/creativeTimDjangoAdmin'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 echo "Git CheckOut"
-                git 'https://github.com/lionelrupesh/creativeTimDjangoAdmin/'
+                git "${REPO_URL}"
             }
         }
 
