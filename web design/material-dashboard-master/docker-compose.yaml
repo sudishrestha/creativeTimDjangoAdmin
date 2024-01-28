@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: MaterialDashboard:tag
+    container_name: PythonContainer
+    ports:
+      - "5000:8080"
+    environment:
+      - ENV_VARIABLE=value
+    networks:
+      - bridge
