@@ -35,7 +35,7 @@ pipeline {
                 echo "Building Docker Image"
                 sh '''
                 original_pwd=$(pwd -P)
-                cd web\ design/material-dashboard-master
+                cd web design/material-dashboard-master
                 docker image build -t ${IMAGE_NAME}:${BUILD_NUMBER} .
                 cd $original_pwd
                 '''
