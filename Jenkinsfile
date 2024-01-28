@@ -38,7 +38,7 @@ pipeline {
                 cd web\ design/material-dashboard-master
                 docker image build -t ${IMAGE_NAME}:${BUILD_NUMBER} .
                 cd $original_pwd
-                sh '''
+                '''
                 
             }
         }
@@ -50,7 +50,7 @@ pipeline {
             docker container stop PythonContainer || true
             docker container rm PythonContainer || true
             docker container run -itd --name PythonContainer -p 8089:8080 $IMAGE_NAME:$BUILD_NUMBER
-            sh '''
+            '''
       }
      }
         stage('Publish to Registry') {
@@ -59,7 +59,7 @@ pipeline {
                 sh '''
                 docker image tag $IMAGE_NAME:latest $REGISTRY_URL/$IMAGE_NAME:V1
                 docker image push $REGISTRY_URL/$IMAGE_NAME:V1
-                sh '''
+                '''
                     }
                 }
     }
