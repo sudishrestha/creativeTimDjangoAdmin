@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "Setting Virtual Environment"
                 sh "python${PYTHON_VERSION} -m venv venv"
-                sh "source venv/bin/activate"
+                sh "venv/bin/activate"
                 
                 echo "Installing dependencies and run tests"
                 sh 'pip install -r requirements.txt'
@@ -35,7 +35,7 @@ pipeline {
                 echo "Building Docker Image"
                 sh '''
                 original_pwd=$(pwd -P)
-                cd web design/material-dashboard-master
+                cd web\ design/material-dashboard-master
                 docker image build -t ${IMAGE_NAME}:${BUILD_NUMBER} .
                 cd $original_pwd
                 sh '''
